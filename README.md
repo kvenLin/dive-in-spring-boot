@@ -84,7 +84,7 @@ SpringBoot深度学习
 * 举例: @Enable@WebMvc,@EnableAutoConfiguration等
 * 实现: 注解方式,编程方式
 * 参考:
-    * [EnableHelloWorld](http://github.com/kvenLin/dive-in-spring-boot/master/src/main/java/com/imooc/demo/annotation/EnableHelloWorld.java)
-    * [HelloWorldImportSelector](http://github.com/kvenLin/dive-in-spring-boot/master/src/main/java/com/imooc/demo/annotation/HelloWorldImportSelector.java)
-    * [HelloWorldConfiguration](http://github.com/kvenLin/dive-in-spring-boot/master/src/main/java/com/imooc/demo/configuration/HelloWorldConfiguration.java)
+    * [EnableHelloWorld](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/annotation/EnableHelloWorld.java)
+    * [HelloWorldImportSelector](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/annotation/HelloWorldImportSelector.java)
+    * [HelloWorldConfiguration](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/configuration/HelloWorldConfiguration.java)
 - 2-5
