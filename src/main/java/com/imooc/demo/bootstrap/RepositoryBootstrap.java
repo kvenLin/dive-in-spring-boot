@@ -11,11 +11,11 @@ import org.springframework.context.annotation.ComponentScan;
  * @Date: 18-12-2
  * @Description:
  */
-@ComponentScan(basePackages = "com.imooc.demo.repository.MyFirstLevelRepository")
+@ComponentScan(basePackages = "com.imooc.demo.repository")
 public class RepositoryBootstrap {
     public static void main(String[] args) {
-        ConfigurableApplicationContext context = new SpringApplicationBuilder(MyFirstLevelRepository.class)
-                .web(WebApplicationType.NONE)
+        ConfigurableApplicationContext context = new SpringApplicationBuilder(RepositoryBootstrap.class)
+                .web(WebApplicationType.NONE)//非web类型
                 .run(args);
 
         //检测myFirstLevelRepository这个Bean是否存在

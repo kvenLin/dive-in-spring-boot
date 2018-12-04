@@ -1,8 +1,6 @@
 package com.imooc.demo.bootstrap;
 
 import com.imooc.demo.annotation.EnableHelloWorld;
-import com.imooc.demo.configuration.HelloWorldConfiguration;
-import com.imooc.demo.repository.MyFirstLevelRepository;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -16,7 +14,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class EnableHelloWorldBootstrap {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = new SpringApplicationBuilder(EnableHelloWorldBootstrap.class)
-                .web(WebApplicationType.NONE)
+                .web(WebApplicationType.NONE)//非web类型
                 .run(args);
 
         //测试@EableHelloWorld
