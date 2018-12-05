@@ -87,9 +87,9 @@ SpringBoot深度学习
     * 注解方式(@Import(HelloWorldConfiguration.class)),直接指定配置模块类
     * 编程方式(@Import(HelloWorldImportSelector.class),实现ImportSelector类的接口再进行导入配置模块类)
 * 参考:
-    * [EnableHelloWorld](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/annotation/EnableHelloWorld.java)
-    * [HelloWorldImportSelector](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/annotation/HelloWorldImportSelector.java)
-    * [HelloWorldConfiguration](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/configuration/HelloWorldConfiguration.java)
+    * [EnableHelloWorld](http://github.com/kvenLin/dive-in-spring-boot/blob/master/autoconfig/src/main/java/com/imooc/demo/annotation/EnableHelloWorld.java)
+    * [HelloWorldImportSelector](http://github.com/kvenLin/dive-in-spring-boot/blob/master/autoconfig/src/main/java/com/imooc/demo/annotation/HelloWorldImportSelector.java)
+    * [HelloWorldConfiguration](http://github.com/kvenLin/dive-in-spring-boot/blob/master/autoconfig/src/main/java/com/imooc/demo/configuration/HelloWorldConfiguration.java)
 ### Spring 条件装配
 * 定义: Bean装配的前置判断
 * 举例: @Profile,@Conditional
@@ -98,18 +98,18 @@ SpringBoot深度学习
         1. 使用@Component注入Bean
         2. 同时@Profile指定
         3. 运行时指定对应的Profile类型
-        * [Java7CalculateService](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/service/impl/Java7CalculateService.java)
-        * [Java8CalculateService](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/service/impl/Java8CalculateService.java)
-        * [CalculateServiceBootstrap](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/bootstrap/CalculateServiceBootstrap.java)
+        * [Java7CalculateService](http://github.com/kvenLin/dive-in-spring-boot/blob/master/autoconfig/src/main/java/com/imooc/demo/service/impl/Java7CalculateService.java)
+        * [Java8CalculateService](http://github.com/kvenLin/dive-in-spring-boot/blob/master/autoconfig/src/main/java/com/imooc/demo/service/impl/Java8CalculateService.java)
+        * [CalculateServiceBootstrap](http://github.com/kvenLin/dive-in-spring-boot/blob/master/autoconfig/src/main/java/com/imooc/demo/bootstrap/CalculateServiceBootstrap.java)
     * 编程方式
         * 实现@Conditional标注的自定义条件注解
-        [@ConditionalOnSystemProperty](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/condition/ConditionalOnSystemProperty.java)
+        [@ConditionalOnSystemProperty](http://github.com/kvenLin/dive-in-spring-boot/blob/master/autoconfig/src/main/java/com/imooc/demo/condition/ConditionalOnSystemProperty.java)
         * 实现继承Condition接口的条件判断类,同时需要在@Conditional中指定该实现类
-        [OnSystemPropertyCondition](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/condition/OnSystemPropertyCondition.java)
+        [OnSystemPropertyCondition](http://github.com/kvenLin/dive-in-spring-boot/blob/master/autoconfig/src/main/java/com/imooc/demo/condition/OnSystemPropertyCondition.java)
         * 使用方式:在使用@Bean进行注入时添加自定义的条件注解@ConditionalOnSystemProperty,然后添加该注解的属性的值,
-        [使用示例](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/bootstrap/ConditionalOnSystemPropertyBootstrap.java)
+        [使用示例](http://github.com/kvenLin/dive-in-spring-boot/blob/master/autoconfig/src/main/java/com/imooc/demo/bootstrap/ConditionalOnSystemPropertyBootstrap.java)
         
- ## SpringBoot的自动装配
+## SpringBoot的自动装配
  * 定义: 约定大于配置,实现Spring组件自动装配的目的
  * 装配: 模式注解,@Enable模块,条件装配,工厂加载机制
 ### 自定义自动装配
@@ -118,12 +118,12 @@ SpringBoot深度学习
     * @Enable 模块: @EnableHelloWorld -> HelloWorldImportSelector -> HelloWorldConfiguration - > helloWorld
     * 条件判断: user.name == "hk"
 * 具体配置:
-    * 先定义自己的自动装配类[HelloWorldAutoConfiguration.java](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/configuration/HelloWorldAutoConfiguration.java)
+    * 先定义自己的自动装配类[HelloWorldAutoConfiguration.java](http://github.com/kvenLin/dive-in-spring-boot/blob/master/autoconfig/src/main/java/com/imooc/demo/configuration/HelloWorldAutoConfiguration.java)
     * 在装配类中添加:
         * 模式注解:@Configuration,同时添加[配置文件:spring.factories](https://raw.githubusercontent.com/kvenLin/dive-in-spring-boot/master/src/main/resources/META-INF/spring.factories)
-        * [模块注解:@EnableHelloWorld](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/annotation/EnableHelloWorld.java)
-        * [条件注解:@ConditionalOnSystemProperty](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/condition/ConditionalOnSystemProperty.java)
-    * [启动类进行测试](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/bootstrap/EnableAutoConfigurationBootstrap.java)
+        * [模块注解:@EnableHelloWorld](http://github.com/kvenLin/dive-in-spring-boot/blob/master/autoconfig/src/main/java/com/imooc/demo/annotation/EnableHelloWorld.java)
+        * [条件注解:@ConditionalOnSystemProperty](http://github.com/kvenLin/dive-in-spring-boot/blob/master/autoconfig/src/main/java/com/imooc/demo/condition/ConditionalOnSystemProperty.java)
+    * [启动类进行测试](http://github.com/kvenLin/dive-in-spring-boot/blob/master/autoconfig/src/main/java/com/imooc/demo/bootstrap/EnableAutoConfigurationBootstrap.java)
 ## 理解SpringApplication
 ### 运行阶段
 * 加载: SpringApplication运行监听器
