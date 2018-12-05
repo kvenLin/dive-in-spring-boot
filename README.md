@@ -63,7 +63,7 @@ SpringBoot深度学习
     <!--<artifactId>spring-boot-starter-jetty</artifactId>-->
 <!--</dependency>-->
 <dependency>
-    <groupId>org.springframework.boot</groupId>
+    <groupId>org.springframework.boot</groupId> 
     <artifactId>spring-boot-starter-webflux</artifactId>
 </dependency>
 ```
@@ -110,4 +110,18 @@ SpringBoot深度学习
         [使用示例](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/bootstrap/ConditionalOnSystemPropertyBootstrap.java)
         
  ## SpringBoot的自动装配
-        
+ * 定义: 约定大于配置,实现Spring组件自动装配的目的
+ * 装配: 模式注解,@Enable模块,条件装配,工厂加载机制
+### 自定义自动装配
+* 主要流程: 
+    * 模式注解: @Configuration
+    * @Enable 模块: @EnableHelloWorld -> HelloWorldImportSelector -> HelloWorldConfiguration - > helloWorld
+    * 条件判断: user.name == "hk"
+* 具体配置:
+    * 先定义自己的自动装配类[HelloWorldAutoConfiguration.java](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/configuration/HelloWorldAutoConfiguration.java)
+    * 在装配类中添加:
+        * 模式注解:@Configuration,同时添加[配置文件:spring.factories](https://raw.githubusercontent.com/kvenLin/dive-in-spring-boot/master/src/main/resources/META-INF/spring.factories)
+        * [模块注解:@EnableHelloWorld](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/annotation/EnableHelloWorld.java)
+        * [条件注解:@ConditionalOnSystemProperty](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/condition/ConditionalOnSystemProperty.java)
+    * [启动类进行测试](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/bootstrap/EnableAutoConfigurationBootstrap.java)
+    
