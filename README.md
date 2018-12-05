@@ -124,4 +124,11 @@ SpringBoot深度学习
         * [模块注解:@EnableHelloWorld](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/annotation/EnableHelloWorld.java)
         * [条件注解:@ConditionalOnSystemProperty](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/condition/ConditionalOnSystemProperty.java)
     * [启动类进行测试](http://github.com/kvenLin/dive-in-spring-boot/blob/master/src/main/java/com/imooc/demo/bootstrap/EnableAutoConfigurationBootstrap.java)
-    
+## 理解SpringApplication
+### 运行阶段
+* 加载: SpringApplication运行监听器
+* 运行: SpringApplication运行监听器
+* 监听: SpringBoot事件,Spring的事件
+* 创建: 应用上下文(ApplicationContext),Environment,其他
+* 失败: 故障分析报告
+* 回调: CommandLineRunner,ApplicationRunner,主要用于参数的回调实现

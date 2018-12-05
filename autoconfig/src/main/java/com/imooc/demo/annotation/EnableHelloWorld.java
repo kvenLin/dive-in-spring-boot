@@ -14,6 +14,6 @@ import java.lang.annotation.*;
 @Target(ElementType.TYPE)
 @Documented
 //@Import(HelloWorldConfiguration.class)//直接指定某模块的配置类
-@Import(HelloWorldImportSelector.class)//使用selector实现的接口进行导入需要的bean
+@Import(com.imooc.demo.annotation.HelloWorldImportSelector.class)//使用selector实现的接口进行导入需要的bean
 public @interface EnableHelloWorld {
 }
