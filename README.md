@@ -125,6 +125,11 @@ SpringBoot深度学习
         * [条件注解:@ConditionalOnSystemProperty](http://github.com/kvenLin/dive-in-spring-boot/blob/master/autoconfig/src/main/java/com/imooc/demo/condition/ConditionalOnSystemProperty.java)
     * [启动类进行测试](http://github.com/kvenLin/dive-in-spring-boot/blob/master/autoconfig/src/main/java/com/imooc/demo/bootstrap/EnableAutoConfigurationBootstrap.java)
 ## 理解SpringApplication
+### SpringApplication运行
+两种方式:
+* SpringApplication.run()
+* new SpringApplicationBuilder().run()
+
 ### 运行阶段
 * 加载: SpringApplication运行监听器
 * 运行: SpringApplication运行监听器
@@ -132,3 +137,4 @@ SpringBoot深度学习
 * 创建: 应用上下文(ApplicationContext),Environment,其他
 * 失败: 故障分析报告
 * 回调: CommandLineRunner,ApplicationRunner,主要用于参数的回调实现
+3-14

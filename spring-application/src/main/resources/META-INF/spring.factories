@@ -1,0 +1,13 @@
+# Application Context Initializers
+org.springframework.context.ApplicationContextInitializer=\
+com.imooc.springapplication.context.HelloWorldApplicationContextInitializer,\
+com.imooc.springapplication.context.AfterHelloWorldApplicationContextInitializer
+
+##实际上是根据Order进行加载和配置文件中写入的顺序无关##
+org.springframework.context.ApplicationListener=\
+com.imooc.springapplication.listener.AfterHelloWorldApplicationListener,\
+com.imooc.springapplication.listener.HelloWorldApplicationListener,\
+com.imooc.springapplication.listener.BeforeConfigFileApplicationListener
+
+org.springframework.boot.SpringApplicationRunListener=\
+com.imooc.springapplication.run.HelloWorldRunListener

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/autoconfig/autoconfig.iml" filepath="$PROJECT_DIR$/autoconfig/autoconfig.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dive-in-spring-boot.iml" filepath="$PROJECT_DIR$/dive-in-spring-boot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-application/spring-application.iml" filepath="$PROJECT_DIR$/spring-application/spring-application.iml" />
+    </modules>
+  </component>
+</project>
